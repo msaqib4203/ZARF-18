@@ -1,0 +1,42 @@
+{
+  "project_info": {
+    "project_number": "187769096826",
+    "firebase_url": "https://zarf18-65d3f.firebaseio.com",
+    "project_id": "zarf18-65d3f",
+    "storage_bucket": "zarf18-65d3f.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:187769096826:android:fe1c2b8e31dd9ab1",
+        "android_client_info": {
+          "package_name": "zarf18.zhcet.msaqib.com.zarf18"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "187769096826-gtsahd1mm35vgmiuanumjgjvthp94967.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCM40v-adZrnINMyJudgs6GOz-WNgfIVac"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

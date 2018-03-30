@@ -2,19 +2,29 @@ package zarf18.zhcet.msaqib.com.zarf18;
 
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
-import android.view.View;
 import android.support.design.widget.NavigationView;
+import android.support.design.widget.Snackbar;
 import android.support.v4.view.GravityCompat;
+import android.support.v4.view.PagerTabStrip;
+import android.support.v4.view.ViewPager;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+
+import static android.util.TypedValue.COMPLEX_UNIT_SP;
+
 
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
+
+    SectionsPagerAdapter mSectionsPagerAdapter;
+    ViewPager mViewPager;
+    PagerTabStrip pagerTitleStrip;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -40,6 +50,13 @@ public class MainActivity extends AppCompatActivity
 
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
+
+        mSectionsPagerAdapter = new SectionsPagerAdapter(getSupportFragmentManager());
+        mViewPager = findViewById(R.id.container);
+        mViewPager.setAdapter(mSectionsPagerAdapter);
+        pagerTitleStrip  = findViewById(R.id.pager_title_strip);
+        pagerTitleStrip.setTextSize(COMPLEX_UNIT_SP,15);
+        pagerTitleStrip.setTabIndicatorColor(getResources().getColor(R.color.colorAccent));
     }
 
     @Override
