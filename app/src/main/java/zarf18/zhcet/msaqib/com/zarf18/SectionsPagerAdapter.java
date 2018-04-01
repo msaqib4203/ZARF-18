@@ -18,21 +18,35 @@ public class SectionsPagerAdapter extends FragmentPagerAdapter {
     @Override
     public Fragment getItem(int position) {
 
-        return position==0?new FeedsFragment():new EventsFragment();
+        switch (position%3) {
+            case 0:
+                return new FeedsFragment();
+            case 1:
+                return new EventsFragment();
+            case 2:
+                return new SponsorsFragment();
+        }
 
+        return new FeedsFragment();
     }
 
     @Override
-    public int getCount() {
-
-        return 2;
-    }
+    public int getCount() { return 3; }
 
     @Nullable
     @Override
     public CharSequence getPageTitle(int position) {
 
-        return position==0?"FEEDS":"EVENTS";
+        switch (position%3) {
+            case 0:
+                return "FEEDS";
+            case 1:
+                return "EVENTS";
+            case 2:
+                return "SPONSORS";
+        }
+
+        return "FEEDS";
 
     }
 }

@@ -3,6 +3,6 @@
 
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>
-
+    <string name="access_token">5080102662.dd6a2f0.01aa55fcd52d4877b0db856fec650145</string>
     <string name="action_settings">Settings</string>
 </resources>

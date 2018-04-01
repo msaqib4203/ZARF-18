@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <android.support.v7.widget.CardView
+        android:layout_height="wrap_content"
+        android:id="@+id/postCard"
+        android:elevation="4dp"
+        app:cardUseCompatPadding="true"
+        android:padding="1dp"
+        app:cardCornerRadius="5dp"
+        android:background="#FFFFFF"
+        android:layout_width="match_parent">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:orientation="vertical"
+        android:background="#FFFFFF"
+        android:layout_height="wrap_content">
+        <br.com.felix.imagezoom.ImageZoom
+            android:layout_width="match_parent"
+            android:id="@+id/postImage"
+            android:padding="6dp"
+            android:scaleType="matrix"
+            android:layout_height="wrap_content" />
+        <TextView
+            android:layout_width="match_parent"
+            android:id="@+id/postLikes"
+            android:paddingStart="12dp"
+            android:drawablePadding="10dp"
+            android:textStyle="bold"
+            android:textColor="#000000"
+            android:fontFamily="sans-serif-condensed"
+            android:textSize="17sp"
+            android:drawableStart="@drawable/ic_heart"
+            android:layout_height="wrap_content"
+            android:text="0 likes"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:id="@+id/postCaption"
+            android:textColor="#000000"
+            android:autoLink="web"
+            android:padding="8dp"
+            android:layout_height="wrap_content"
+            android:fontFamily="sans-serif-condensed"
+            android:textSize="15sp"
+            android:text=""/>
+    </LinearLayout>
+    </android.support.v7.widget.CardView>
+
+
+</android.support.constraint.ConstraintLayout>

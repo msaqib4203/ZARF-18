@@ -6,11 +6,27 @@ import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.support.v4.widget.SwipeRefreshLayout;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Toast;
 
+import com.android.volley.DefaultRetryPolicy;
+import com.android.volley.Request;
+import com.android.volley.RequestQueue;
+import com.android.volley.Response;
+import com.android.volley.VolleyError;
+import com.android.volley.toolbox.StringRequest;
+import com.android.volley.toolbox.Volley;
 import com.google.firebase.analytics.FirebaseAnalytics;
+
+import org.json.JSONArray;
+import org.json.JSONObject;
+
+import java.util.ArrayList;
 
 /**
  * Created by MSaqib on 29-03-2018.
@@ -20,6 +36,10 @@ public class FeedsFragment extends Fragment {
 
     SwipeRefreshLayout swipeRefreshLayout = null;
     View view;
+    RecyclerView recyclerView;
+    LinearLayoutManager linearLayoutManager;
+    PostAdapter postAdapter;
+    ArrayList<Post> posts = new ArrayList<>();
 
     /*static {
         System.loadLibrary("keys");
@@ -32,16 +52,21 @@ public class FeedsFragment extends Fragment {
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
 
         view = inflater.inflate(R.layout.fragment_feeds, container, false);
-        /*expandingList = view.findViewById(R.id.expanding_list_main);
+        /*expandingList = view.findViewById(R.id.expanding_list_main);*/
+        recyclerView = view.findViewById(R.id.recyclerView);
+        linearLayoutManager = new LinearLayoutManager(getContext(),1,false);
+        recyclerView.setLayoutManager(linearLayoutManager);
+        postAdapter = new PostAdapter(getContext(),posts);
+        recyclerView.setAdapter(postAdapter);
         swipeRefreshLayout = view.findViewById(R.id.swipe_refresh);
         swipeRefreshLayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
             @Override
             public void onRefresh() {
-                getEpisodes();
+                getPosts();
             }
         });
         swipeRefreshLayout.setRefreshing(true);
-        getEpisodes();*/
+        getPosts();
         return view;
 
     }
@@ -73,10 +98,11 @@ public class FeedsFragment extends Fragment {
         });
     }
 
-    private void getEpisodes() {
+    private void getPosts() {
 
         /*String JSON_URL = new String(Base64.decode(getMainUrl1(),Base64.DEFAULT))+Details.selectedSerial.unformatted;
-        //creating a string request to send request to the url
+        */
+        String JSON_URL = "http://zarfamu.co.in/instagram/insta_api.php?q=recent";
         StringRequest stringRequest = new StringRequest(Request.Method.GET, JSON_URL,
                 new Response.Listener<String>() {
                     public int i,j;
@@ -89,36 +115,15 @@ public class FeedsFragment extends Fragment {
                             Log.d("respons",response.toString());
                             //getting the whole json object from the response
                             JSONObject obj = new JSONObject(response);
-                            seasons.removeAll(seasons);
-                            expandingList.removeAllViews();
-                            int sCount = Integer.parseInt(String.valueOf(obj.get("sCount")));
-                            JSONArray seasonsJson = obj.getJSONArray("data");
-                            Season newSeason;
-                            for(int i=0;i<sCount;i++){
-                               newSeason = new Season(seasonsJson.getJSONObject(i));
-                               if(newSeason.isValid())
-                                   seasons.add(newSeason);
+                            posts.removeAll(posts);
+                            JSONArray data = obj.getJSONArray("data");
+                            int count = Integer.parseInt(obj.getString("count"));
+                            for(int i=0;i<count;i++){
+                                Log.d("object", String.valueOf(data.getJSONObject(i)));
+                                posts.add(new Post(data.getJSONObject(i)));
                             }
-                            Collections.sort(seasons,seasonComparator);
-                            TextView tv;
-                            for(i=0;i<seasons.size();i++){
-                                item = expandingList.createNewItem(R.layout.episodesplusseason);
-                                item.setIndicatorColorRes(R.color.blue);
-                                item.setIndicatorIconRes(R.drawable.ic_tv_black_24dp);
-                                tv = item.findViewById(R.id.title);
-                                tv.setText("Season "+seasons.get(i).number);
-                                item.createSubItems(seasons.get(i).eCount);
-                                View subIthitem;
 
-                                for(j=0;j<seasons.get(i).eCount;j++){
-
-                                    subIthitem = item.getSubItemView(j);
-                                    String ur = new String(Base64.decode(getMainUrl2(),Base64.DEFAULT))+seasons.get(i).heading+seasons.get(i).episodes.get(j).link;
-                                    setOnClick(subIthitem,ur,seasons.get(i).episodes.get(j).tag,Details.selectedSerial.text);
-                                    ((TextView) subIthitem.findViewById(R.id.sub_title)).setText(seasons.get(i).episodes.get(j).tag);
-                                    ((TextView) subIthitem.findViewById(R.id.sub_size)).setText(seasons.get(i).episodes.get(j).quality);
-                                }
-                            }
+                            postAdapter.notifyDataSetChanged();
 
                         } catch (Exception e) {
                             e.printStackTrace();
@@ -142,6 +147,6 @@ public class FeedsFragment extends Fragment {
                 DefaultRetryPolicy.DEFAULT_MAX_RETRIES,
                 DefaultRetryPolicy.DEFAULT_BACKOFF_MULT));
         //adding the string request to request queue
-        requestQueue.add(stringRequest);*/
+        requestQueue.add(stringRequest);
     }
 }
