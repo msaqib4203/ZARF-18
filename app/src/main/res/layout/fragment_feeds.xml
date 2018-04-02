@@ -13,7 +13,7 @@
             android:paddingTop="8dp"
             android:paddingLeft="3dp"
             android:paddingRight="3dp"
-            android:background="#ff252e39"
+            android:background="@color/tabsBK"
             android:id="@+id/recyclerView"
             >
         </android.support.v7.widget.RecyclerView>

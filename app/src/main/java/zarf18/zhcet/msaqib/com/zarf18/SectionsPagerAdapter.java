@@ -22,9 +22,9 @@ public class SectionsPagerAdapter extends FragmentPagerAdapter {
             case 0:
                 return new FeedsFragment();
             case 1:
-                return new EventsFragment();
-            case 2:
                 return new SponsorsFragment();
+            case 2:
+                return new EventsFragment();
         }
 
         return new FeedsFragment();
@@ -41,9 +41,9 @@ public class SectionsPagerAdapter extends FragmentPagerAdapter {
             case 0:
                 return "FEEDS";
             case 1:
-                return "EVENTS";
+                return "GALLERY";
             case 2:
-                return "SPONSORS";
+                return "EVENTS";
         }
 
         return "FEEDS";

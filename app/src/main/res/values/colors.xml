@@ -1,9 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="colorPrimary">#ff252e39</color>
-    <color name="colorPrimaryDark">#ff252e39</color>
-    <color name="colorAccent">#FF4081</color>
-    <color name="feedBackground">#556470</color>
-    <color name="postText">#C5CAE9</color>
-    <color name="postTextBold">#A5AACC</color>
+    <color name="colorPrimary">#3F51B5</color>
+    <color name="colorPrimaryDark">#303F9F</color>
+    <color name="primary_light">#C5CAE9</color>
+    <color name="colorAccent">#FFEB3B</color>
+    <color name="primary_text">#212121</color>
+    <color name="secondary_text">#757575</color>
+    <color name="tabsBK">#423752</color>
+    <color name="tabsDark">#423752</color>
+    <color name="icons">#FFFFFF</color>
+    <color name="divider">#BDBDBD</color>
 </resources>
