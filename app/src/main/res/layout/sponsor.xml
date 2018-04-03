@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <android.support.v7.widget.CardView
+        android:id="@+id/fmember"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingRight="1dp"
+        android:paddingTop="1dp"
+        app:cardBackgroundColor="#F7F9FB"
+        app:cardCornerRadius="5dp"
+        app:cardElevation="1dp"
+        app:cardUseCompatPadding="true"
+        app:contentPaddingLeft="1dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:orientation="vertical"
+            android:layout_height="wrap_content">
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textAlignment="center"
+                android:textSize="18sp"
+                android:fontFamily="sans-serif-smallcaps"
+                android:textColor="#000000"
+                android:id="@+id/sponsor_type"/>
+            <ImageView
+                android:layout_width="match_parent"
+                android:src="@drawable/ic_pnglogo"
+                android:layout_height="240dp"
+                android:scaleType="fitCenter"
+                android:id="@+id/sponsor_logo"/>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textAlignment="center"
+                android:textSize="18sp"
+                android:fontFamily="sans-serif-smallcaps"
+                android:textColor="#000000"
+                android:id="@+id/sponsor_name"/>
+        </LinearLayout>
+
+    </android.support.v7.widget.CardView>
+
+</android.support.constraint.ConstraintLayout>
