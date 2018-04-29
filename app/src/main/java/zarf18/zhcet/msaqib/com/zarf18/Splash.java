@@ -24,9 +24,9 @@ public class Splash extends AwesomeSplash {
         //Choose LOGO OR PATH; if you don't provide String value for path it's logo by default
 
         //Customize Logo
-        configSplash.setLogoSplash(R.drawable.smalllogo);
+        configSplash.setLogoSplash(R.drawable.ic_zarf_vector);
         configSplash.setAnimLogoSplashDuration(1500); //int ms
-        configSplash.setAnimLogoSplashTechnique(Techniques.Bounce); //choose one form Techniques (ref: https://github.com/daimajia/AndroidViewAnimations)
+        configSplash.setAnimLogoSplashTechnique(Techniques.RollIn); //choose one form Techniques (ref: https://github.com/daimajia/AndroidViewAnimations)
 
 
         //Customize Path
@@ -46,7 +46,7 @@ public class Splash extends AwesomeSplash {
         configSplash.setTitleTextSize(30f); //float value
         configSplash.setAnimTitleDuration(1500);
         configSplash.setAnimTitleTechnique(Techniques.SlideInUp);
-        //configSplash.setTitleFont("fonts/myfont.ttf"); //provide string to your font located in assets/fonts/
+        configSplash.setTitleFont("fonts/BOOKERLY-BOLD.TTF"); //provide string to your font located in assets/fonts/
 
     }
 

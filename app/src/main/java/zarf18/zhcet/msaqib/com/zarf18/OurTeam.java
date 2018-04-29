@@ -40,6 +40,7 @@ public class OurTeam extends AppCompatActivity {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.ourteam);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         swipeRefreshLayout = findViewById(R.id.team_refresh);
         recyclerView = findViewById(R.id.recyclerView);
         recyclerView.setLayoutManager(new LinearLayoutManager(getApplicationContext(),1,false));

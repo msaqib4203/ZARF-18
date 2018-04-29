@@ -45,6 +45,7 @@ public class Sponsors extends AppCompatActivity {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.sponsors);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         swipeRefreshLayout = findViewById(R.id.sponsor_refresh);
         recyclerView = findViewById(R.id.recyclerView_spo);
         recyclerView.setLayoutManager(new LinearLayoutManager(getApplicationContext(),1,false));

@@ -1,6 +1,7 @@
 package zarf18.zhcet.msaqib.com.zarf18;
 
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
@@ -80,6 +81,17 @@ public class MainActivity extends AppCompatActivity
             startActivity(new Intent(this,OurTeam.class));
         else if(id==R.id.sponsors_men)
             startActivity(new Intent(this,Sponsors.class));
+        else if(id==R.id.about_app)
+            startActivity(new Intent(this,About.class));
+        else if(id==R.id.dev)
+            startActivity(new Intent(this,Developer.class));
+        else if(id==R.id.rate_app){
+            try {
+                Intent intent = new Intent(Intent.ACTION_VIEW);
+                intent.setData(Uri.parse("market://details?id=zarf18.zhcet.msaqib.com.zarf18"));
+                startActivity(intent);
+            }catch(Exception e){}
+        }
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         drawer.closeDrawer(GravityCompat.START);

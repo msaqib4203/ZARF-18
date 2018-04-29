@@ -28,14 +28,25 @@
         </activity>
 
         <activity android:name=".OurTeam"
+            android:parentActivityName=".MainActivity"
             android:label="Our Team">
 
         </activity>
 
         <activity android:name=".Sponsors"
+            android:parentActivityName=".MainActivity"
             android:label="Sponsors">
-
         </activity>
+
+        <activity android:name=".About"
+            android:parentActivityName=".MainActivity"
+            android:label="About Us">
+        </activity>
+
+        <activity android:name=".Developer"
+            android:parentActivityName=".MainActivity"
+        android:label="Developer">
+    </activity>
 
     </application>
 

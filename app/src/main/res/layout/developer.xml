@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:card_view="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <android.support.v7.widget.CardView
+        android:id="@+id/card"
+        android:layout_centerInParent="true"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        card_view:cardBackgroundColor="@android:color/white"
+        card_view:cardCornerRadius="4dp"
+        card_view:cardElevation="4dp"
+        card_view:cardUseCompatPadding="true">
+
+        <RelativeLayout
+            android:id="@+id/linearLayoutCardContent"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <android.support.v7.widget.CardView
+                android:id="@+id/imageView_holder"
+                android:layout_width="90dp"
+                android:layout_height="90dp"
+                app:cardBackgroundColor="#FFFFFF"
+                card_view:cardElevation="4dp"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="13dp" />
+
+            <de.hdodenhof.circleimageview.CircleImageView
+                android:id="@+id/imageView_dev"
+                android:layout_width="90dp"
+                android:layout_height="90dp"
+                android:elevation="5dp"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="13dp"
+                android:src="@drawable/ic_user" />
+
+            <TextView
+                android:id="@+id/dev_name"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentStart="true"
+                android:layout_below="@+id/imageView_holder"
+                android:fontFamily="sans-serif-condensed"
+                android:text="Mohammad Saqib"
+                android:textAlignment="center"
+                android:textColor="#000000"
+                android:textSize="20sp" />
+
+            <TextView
+                android:id="@+id/batch"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/dev_name"
+                android:text="Computer Engineering 2018"
+                android:textAlignment="center"
+                android:textColor="#757575"
+                android:textSize="16sp" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_below="@id/batch"
+                android:weightSum="3"
+                android:gravity="center"
+                android:padding="10dp"
+                android:layout_margin="5dp"
+                android:layout_height="wrap_content"
+                android:id="@+id/linearLayout">
+
+                <android.support.design.widget.FloatingActionButton
+                    android:id="@+id/dev_github"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+
+                    android:src="@drawable/ic_github"
+                    app:backgroundTint="#fff" />
+
+                <android.support.design.widget.FloatingActionButton
+                    android:id="@+id/dev_linkedin"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="30dp"
+                    android:layout_marginRight="30dp"
+                    android:src="@drawable/ic_linkedin"
+                    app:backgroundTint="#fff" />
+                <android.support.design.widget.FloatingActionButton
+                    android:id="@+id/dev_facebook"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/ic_facebook"
+                    app:backgroundTint="#fff" />
+            </LinearLayout>
+
+
+        </RelativeLayout>
+    </android.support.v7.widget.CardView>
+</RelativeLayout>

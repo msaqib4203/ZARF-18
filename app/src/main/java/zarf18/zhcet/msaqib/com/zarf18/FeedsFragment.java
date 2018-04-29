@@ -112,7 +112,7 @@ public class FeedsFragment extends Fragment {
                            swipeRefreshLayout.setRefreshing(false);
 
                         try {
-                            Log.d("respons",response.toString());
+                           // Log.d("respons",response.toString());
                             //getting the whole json object from the response
                             JSONObject obj = new JSONObject(response);
                             posts.removeAll(posts);

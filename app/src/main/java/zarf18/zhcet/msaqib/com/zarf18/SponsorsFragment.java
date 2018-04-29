@@ -24,6 +24,7 @@ import com.bumptech.glide.Glide;
 import org.json.JSONArray;
 import org.json.JSONObject;
 
+import br.com.felix.imagezoom.ImageZoom;
 import quatja.com.vorolay.VoronoiView;
 
 /**
@@ -53,7 +54,7 @@ public class SponsorsFragment extends Fragment{
 
         /*String JSON_URL = new String(Base64.decode(getMainUrl1(),Base64.DEFAULT))+Details.selectedSerial.unformatted;
         */
-        String JSON_URL = "http://zarfamu.co.in/instagram/insta_api.php?q=collage";
+        String JSON_URL = "http://zarfamu.co.in/instagram/insta_api.php?q=gallery";
         StringRequest stringRequest = new StringRequest(Request.Method.GET, JSON_URL,
                 new Response.Listener<String>() {
                     @Override
@@ -63,7 +64,7 @@ public class SponsorsFragment extends Fragment{
 
                         try {
                             Toast.makeText(getContext(),"OK loading collage", Toast.LENGTH_SHORT).show();
-                            Log.d("respons",response.toString());
+                          //  Log.d("respons",response.toString());
                             //getting the whole json object from the response
                             JSONObject obj = new JSONObject(response);
                             JSONArray data = obj.getJSONArray("data");
@@ -75,18 +76,12 @@ public class SponsorsFragment extends Fragment{
                                 View view = layoutInflater.inflate(R.layout.item_sponsor, null, false);
                                 voronoiView.addView(view);
                                 //ImageView imageView = view.findViewById(R.id.collage_imageview);
-                                ImageView layout = (ImageView) view.findViewById(R.id.layout);
+                                ImageZoom layout = (ImageZoom) view.findViewById(R.id.layout);
                                 // Glide.with(getContext()).load(posts.get(position).getImageUrl()).into(imageView);
                                 Glide.with(getContext()).load(data.getJSONObject(i).getString("imageUrl")).into(layout);
                                 //layout.setBackgroundColor(Color.argb(255, rnd.nextInt(256), rnd.nextInt(256), rnd.nextInt(256)));
                             }
                             voronoiView.refresh();
-                            /*voronoiView.setOnRegionClickListener(new VoronoiView.OnRegionClickListener() {
-                                @Override
-                                public void onClick(View view, int position) {
-                                    Toast.makeText(getContext(), "position: " + position, Toast.LENGTH_SHORT).show();
-                                }
-                            });*/
                         } catch (Exception e) {
                             e.printStackTrace();
                         }
